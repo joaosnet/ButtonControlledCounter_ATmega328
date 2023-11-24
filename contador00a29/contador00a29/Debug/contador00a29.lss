@@ -1,0 +1,428 @@
+
+contador00a29.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  00800100  000002c0  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         0000024c  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000001  00800100  00800100  000002c0  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  000002c0  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000002f0  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000048  00000000  00000000  00000330  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   0000083c  00000000  00000000  00000378  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000724  00000000  00000000  00000bb4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   0000038e  00000000  00000000  000012d8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  000000c0  00000000  00000000  00001668  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000437  00000000  00000000  00001728  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    0000019d  00000000  00000000  00001b5f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000038  00000000  00000000  00001cfc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+   8:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+   c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  10:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  14:	0c 94 c5 00 	jmp	0x18a	; 0x18a <__vector_5>
+  18:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  1c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  20:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  24:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  28:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  2c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  30:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  34:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  38:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  3c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  40:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  44:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  48:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  4c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  50:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  54:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  58:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  5c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  60:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  64:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_clear_bss>:
+  74:	21 e0       	ldi	r18, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	01 c0       	rjmp	.+2      	; 0x7e <.do_clear_bss_start>
+
+0000007c <.do_clear_bss_loop>:
+  7c:	1d 92       	st	X+, r1
+
+0000007e <.do_clear_bss_start>:
+  7e:	a1 30       	cpi	r26, 0x01	; 1
+  80:	b2 07       	cpc	r27, r18
+  82:	e1 f7       	brne	.-8      	; 0x7c <.do_clear_bss_loop>
+  84:	0e 94 be 00 	call	0x17c	; 0x17c <main>
+  88:	0c 94 24 01 	jmp	0x248	; 0x248 <_exit>
+
+0000008c <__bad_interrupt>:
+  8c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000090 <inicializarShiftRegisters>:
+volatile uint8_t estadoBotaoB = 0;
+
+// Função para inicializar os registradores de deslocamento
+void inicializarShiftRegisters() {
+    // Configurar os pinos como saída
+    DDRB |= (1 << DS_PINO) | (1 << SH_CP_PINO) | (1 << ST_CP_PINO);
+  90:	84 b1       	in	r24, 0x04	; 4
+  92:	80 67       	ori	r24, 0x70	; 112
+  94:	84 b9       	out	0x04, r24	; 4
+  96:	08 95       	ret
+
+00000098 <enviarByte>:
+}
+
+// Função para enviar um byte para os registradores de deslocamento
+void enviarByte(uint8_t dado) {
+    for (int i = 7; i >= 0; i--) {
+  98:	27 e0       	ldi	r18, 0x07	; 7
+  9a:	30 e0       	ldi	r19, 0x00	; 0
+  9c:	19 c0       	rjmp	.+50     	; 0xd0 <enviarByte+0x38>
+        // Configurar o pino de dados (DS)
+        if (dado & (1 << i)) {
+  9e:	48 2f       	mov	r20, r24
+  a0:	50 e0       	ldi	r21, 0x00	; 0
+  a2:	02 2e       	mov	r0, r18
+  a4:	02 c0       	rjmp	.+4      	; 0xaa <enviarByte+0x12>
+  a6:	55 95       	asr	r21
+  a8:	47 95       	ror	r20
+  aa:	0a 94       	dec	r0
+  ac:	e2 f7       	brpl	.-8      	; 0xa6 <enviarByte+0xe>
+  ae:	40 ff       	sbrs	r20, 0
+  b0:	04 c0       	rjmp	.+8      	; 0xba <enviarByte+0x22>
+            PORTB |= (1 << DS_PINO);
+  b2:	95 b1       	in	r25, 0x05	; 5
+  b4:	90 61       	ori	r25, 0x10	; 16
+  b6:	95 b9       	out	0x05, r25	; 5
+  b8:	03 c0       	rjmp	.+6      	; 0xc0 <enviarByte+0x28>
+        } else {
+            PORTB &= ~(1 << DS_PINO);
+  ba:	95 b1       	in	r25, 0x05	; 5
+  bc:	9f 7e       	andi	r25, 0xEF	; 239
+  be:	95 b9       	out	0x05, r25	; 5
+        }
+
+        // Pulsar o pino de clock (SH_CP)
+        PORTB |= (1 << SH_CP_PINO);
+  c0:	95 b1       	in	r25, 0x05	; 5
+  c2:	90 62       	ori	r25, 0x20	; 32
+  c4:	95 b9       	out	0x05, r25	; 5
+        PORTB &= ~(1 << SH_CP_PINO);
+  c6:	95 b1       	in	r25, 0x05	; 5
+  c8:	9f 7d       	andi	r25, 0xDF	; 223
+  ca:	95 b9       	out	0x05, r25	; 5
+    DDRB |= (1 << DS_PINO) | (1 << SH_CP_PINO) | (1 << ST_CP_PINO);
+}
+
+// Função para enviar um byte para os registradores de deslocamento
+void enviarByte(uint8_t dado) {
+    for (int i = 7; i >= 0; i--) {
+  cc:	21 50       	subi	r18, 0x01	; 1
+  ce:	31 09       	sbc	r19, r1
+  d0:	33 23       	and	r19, r19
+  d2:	2c f7       	brge	.-54     	; 0x9e <enviarByte+0x6>
+        PORTB |= (1 << SH_CP_PINO);
+        PORTB &= ~(1 << SH_CP_PINO);
+    }
+
+    // Pulsar o pino de latch (ST_CP)
+    PORTB |= (1 << ST_CP_PINO);
+  d4:	85 b1       	in	r24, 0x05	; 5
+  d6:	80 64       	ori	r24, 0x40	; 64
+  d8:	85 b9       	out	0x05, r24	; 5
+    PORTB &= ~(1 << ST_CP_PINO);
+  da:	85 b1       	in	r24, 0x05	; 5
+  dc:	8f 7b       	andi	r24, 0xBF	; 191
+  de:	85 b9       	out	0x05, r24	; 5
+  e0:	08 95       	ret
+
+000000e2 <atualizarDisplay>:
+}
+
+// Função para atualizar os displays de sete segmentos
+void atualizarDisplay() {
+  e2:	0f 93       	push	r16
+  e4:	1f 93       	push	r17
+  e6:	cf 93       	push	r28
+  e8:	df 93       	push	r29
+  ea:	00 d0       	rcall	.+0      	; 0xec <atualizarDisplay+0xa>
+  ec:	cd b7       	in	r28, 0x3d	; 61
+  ee:	de b7       	in	r29, 0x3e	; 62
+    // Mapear os dígitos e enviar para os registradores de deslocamento
+    uint8_t digitos[2] = {contador / 10, contador % 10};
+  f0:	90 91 00 01 	lds	r25, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
+  f4:	8d ec       	ldi	r24, 0xCD	; 205
+  f6:	98 9f       	mul	r25, r24
+  f8:	91 2d       	mov	r25, r1
+  fa:	11 24       	eor	r1, r1
+  fc:	96 95       	lsr	r25
+  fe:	96 95       	lsr	r25
+ 100:	96 95       	lsr	r25
+ 102:	99 83       	std	Y+1, r25	; 0x01
+ 104:	90 91 00 01 	lds	r25, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
+ 108:	98 9f       	mul	r25, r24
+ 10a:	81 2d       	mov	r24, r1
+ 10c:	11 24       	eor	r1, r1
+ 10e:	86 95       	lsr	r24
+ 110:	86 95       	lsr	r24
+ 112:	86 95       	lsr	r24
+ 114:	88 0f       	add	r24, r24
+ 116:	28 2f       	mov	r18, r24
+ 118:	22 0f       	add	r18, r18
+ 11a:	22 0f       	add	r18, r18
+ 11c:	82 0f       	add	r24, r18
+ 11e:	98 1b       	sub	r25, r24
+ 120:	9a 83       	std	Y+2, r25	; 0x02
+    
+    for (int i = 0; i < 2; i++) {
+ 122:	00 e0       	ldi	r16, 0x00	; 0
+ 124:	10 e0       	ldi	r17, 0x00	; 0
+ 126:	0b c0       	rjmp	.+22     	; 0x13e <atualizarDisplay+0x5c>
+        // Enviar o código do dígito para os displays de sete segmentos
+        enviarByte(digitos[i]);
+ 128:	e1 e0       	ldi	r30, 0x01	; 1
+ 12a:	f0 e0       	ldi	r31, 0x00	; 0
+ 12c:	ec 0f       	add	r30, r28
+ 12e:	fd 1f       	adc	r31, r29
+ 130:	e0 0f       	add	r30, r16
+ 132:	f1 1f       	adc	r31, r17
+ 134:	80 81       	ld	r24, Z
+ 136:	0e 94 4c 00 	call	0x98	; 0x98 <enviarByte>
+// Função para atualizar os displays de sete segmentos
+void atualizarDisplay() {
+    // Mapear os dígitos e enviar para os registradores de deslocamento
+    uint8_t digitos[2] = {contador / 10, contador % 10};
+    
+    for (int i = 0; i < 2; i++) {
+ 13a:	0f 5f       	subi	r16, 0xFF	; 255
+ 13c:	1f 4f       	sbci	r17, 0xFF	; 255
+ 13e:	02 30       	cpi	r16, 0x02	; 2
+ 140:	11 05       	cpc	r17, r1
+ 142:	94 f3       	brlt	.-28     	; 0x128 <atualizarDisplay+0x46>
+        // Enviar o código do dígito para os displays de sete segmentos
+        enviarByte(digitos[i]);
+    }
+}
+ 144:	0f 90       	pop	r0
+ 146:	0f 90       	pop	r0
+ 148:	df 91       	pop	r29
+ 14a:	cf 91       	pop	r28
+ 14c:	1f 91       	pop	r17
+ 14e:	0f 91       	pop	r16
+ 150:	08 95       	ret
+
+00000152 <configurarInterrupcoes>:
+
+// Configurar e inicializar as interrupções
+void configurarInterrupcoes() {
+    // Configurar os pinos dos botões como entrada
+    DDRD &= ~(1 << BOTAO_A_PINO) | (1 << BOTAO_B_PINO);
+ 152:	8a b1       	in	r24, 0x0a	; 10
+ 154:	8b 7f       	andi	r24, 0xFB	; 251
+ 156:	8a b9       	out	0x0a, r24	; 10
+    // Ativar resistores de pull-up para os botões
+    PORTD |= (1 << BOTAO_A_PINO) | (1 << BOTAO_B_PINO);
+ 158:	8b b1       	in	r24, 0x0b	; 11
+ 15a:	8c 60       	ori	r24, 0x0C	; 12
+ 15c:	8b b9       	out	0x0b, r24	; 11
+
+    // Configurar a interrupção para o botão A (PCINT20)
+    PCICR |= (1 << PCIE2);
+ 15e:	e8 e6       	ldi	r30, 0x68	; 104
+ 160:	f0 e0       	ldi	r31, 0x00	; 0
+ 162:	80 81       	ld	r24, Z
+ 164:	84 60       	ori	r24, 0x04	; 4
+ 166:	80 83       	st	Z, r24
+    PCMSK2 |= (1 << PCINT20);
+ 168:	ed e6       	ldi	r30, 0x6D	; 109
+ 16a:	f0 e0       	ldi	r31, 0x00	; 0
+ 16c:	80 81       	ld	r24, Z
+ 16e:	80 61       	ori	r24, 0x10	; 16
+ 170:	80 83       	st	Z, r24
+
+    // Configurar a interrupção para o botão B (PCINT21)
+    PCMSK2 |= (1 << PCINT21);
+ 172:	80 81       	ld	r24, Z
+ 174:	80 62       	ori	r24, 0x20	; 32
+ 176:	80 83       	st	Z, r24
+
+    // Ativar interrupções globais
+    sei();
+ 178:	78 94       	sei
+ 17a:	08 95       	ret
+
+0000017c <main>:
+}
+
+int main(void) {
+    inicializarShiftRegisters();
+ 17c:	0e 94 48 00 	call	0x90	; 0x90 <inicializarShiftRegisters>
+    configurarInterrupcoes();
+ 180:	0e 94 a9 00 	call	0x152	; 0x152 <configurarInterrupcoes>
+
+    while (1) {
+        // Atualizar os displays de sete segmentos
+        atualizarDisplay();
+ 184:	0e 94 71 00 	call	0xe2	; 0xe2 <atualizarDisplay>
+ 188:	fd cf       	rjmp	.-6      	; 0x184 <main+0x8>
+
+0000018a <__vector_5>:
+
+    return 0;
+}
+
+// Rotina de interrupção para os botões A e B (PCINT20 e PCINT21)
+ISR(PCINT2_vect) {
+ 18a:	1f 92       	push	r1
+ 18c:	0f 92       	push	r0
+ 18e:	0f b6       	in	r0, 0x3f	; 63
+ 190:	0f 92       	push	r0
+ 192:	11 24       	eor	r1, r1
+ 194:	5f 93       	push	r21
+ 196:	6f 93       	push	r22
+ 198:	7f 93       	push	r23
+ 19a:	8f 93       	push	r24
+ 19c:	9f 93       	push	r25
+ 19e:	af 93       	push	r26
+ 1a0:	bf 93       	push	r27
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 1a2:	8f e3       	ldi	r24, 0x3F	; 63
+ 1a4:	9c e9       	ldi	r25, 0x9C	; 156
+ 1a6:	01 97       	sbiw	r24, 0x01	; 1
+ 1a8:	f1 f7       	brne	.-4      	; 0x1a6 <__vector_5+0x1c>
+ 1aa:	00 c0       	rjmp	.+0      	; 0x1ac <__vector_5+0x22>
+ 1ac:	00 00       	nop
+    _delay_ms(10); // Debounce
+    if (!(PIND & (1 << BOTAO_A_PINO))) {
+ 1ae:	4a 99       	sbic	0x09, 2	; 9
+ 1b0:	0a c0       	rjmp	.+20     	; 0x1c6 <__vector_5+0x3c>
+        // Incrementar o contador
+        contador = (contador + 1) % 30;
+ 1b2:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
+ 1b6:	90 e0       	ldi	r25, 0x00	; 0
+ 1b8:	01 96       	adiw	r24, 0x01	; 1
+ 1ba:	6e e1       	ldi	r22, 0x1E	; 30
+ 1bc:	70 e0       	ldi	r23, 0x00	; 0
+ 1be:	0e 94 fc 00 	call	0x1f8	; 0x1f8 <__divmodhi4>
+ 1c2:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__DATA_REGION_ORIGIN__>
+    }
+    if (!(PIND & (1 << BOTAO_B_PINO))) {
+ 1c6:	4b 99       	sbic	0x09, 3	; 9
+ 1c8:	0b c0       	rjmp	.+22     	; 0x1e0 <__vector_5+0x56>
+        // Decrementar o contador
+        contador = (contador == 0) ? 29 : contador - 1;
+ 1ca:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
+ 1ce:	88 23       	and	r24, r24
+ 1d0:	21 f0       	breq	.+8      	; 0x1da <__vector_5+0x50>
+ 1d2:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
+ 1d6:	81 50       	subi	r24, 0x01	; 1
+ 1d8:	01 c0       	rjmp	.+2      	; 0x1dc <__vector_5+0x52>
+ 1da:	8d e1       	ldi	r24, 0x1D	; 29
+ 1dc:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__DATA_REGION_ORIGIN__>
+    }
+ 1e0:	bf 91       	pop	r27
+ 1e2:	af 91       	pop	r26
+ 1e4:	9f 91       	pop	r25
+ 1e6:	8f 91       	pop	r24
+ 1e8:	7f 91       	pop	r23
+ 1ea:	6f 91       	pop	r22
+ 1ec:	5f 91       	pop	r21
+ 1ee:	0f 90       	pop	r0
+ 1f0:	0f be       	out	0x3f, r0	; 63
+ 1f2:	0f 90       	pop	r0
+ 1f4:	1f 90       	pop	r1
+ 1f6:	18 95       	reti
+
+000001f8 <__divmodhi4>:
+ 1f8:	97 fb       	bst	r25, 7
+ 1fa:	07 2e       	mov	r0, r23
+ 1fc:	16 f4       	brtc	.+4      	; 0x202 <__divmodhi4+0xa>
+ 1fe:	00 94       	com	r0
+ 200:	07 d0       	rcall	.+14     	; 0x210 <__divmodhi4_neg1>
+ 202:	77 fd       	sbrc	r23, 7
+ 204:	09 d0       	rcall	.+18     	; 0x218 <__divmodhi4_neg2>
+ 206:	0e 94 10 01 	call	0x220	; 0x220 <__udivmodhi4>
+ 20a:	07 fc       	sbrc	r0, 7
+ 20c:	05 d0       	rcall	.+10     	; 0x218 <__divmodhi4_neg2>
+ 20e:	3e f4       	brtc	.+14     	; 0x21e <__divmodhi4_exit>
+
+00000210 <__divmodhi4_neg1>:
+ 210:	90 95       	com	r25
+ 212:	81 95       	neg	r24
+ 214:	9f 4f       	sbci	r25, 0xFF	; 255
+ 216:	08 95       	ret
+
+00000218 <__divmodhi4_neg2>:
+ 218:	70 95       	com	r23
+ 21a:	61 95       	neg	r22
+ 21c:	7f 4f       	sbci	r23, 0xFF	; 255
+
+0000021e <__divmodhi4_exit>:
+ 21e:	08 95       	ret
+
+00000220 <__udivmodhi4>:
+ 220:	aa 1b       	sub	r26, r26
+ 222:	bb 1b       	sub	r27, r27
+ 224:	51 e1       	ldi	r21, 0x11	; 17
+ 226:	07 c0       	rjmp	.+14     	; 0x236 <__udivmodhi4_ep>
+
+00000228 <__udivmodhi4_loop>:
+ 228:	aa 1f       	adc	r26, r26
+ 22a:	bb 1f       	adc	r27, r27
+ 22c:	a6 17       	cp	r26, r22
+ 22e:	b7 07       	cpc	r27, r23
+ 230:	10 f0       	brcs	.+4      	; 0x236 <__udivmodhi4_ep>
+ 232:	a6 1b       	sub	r26, r22
+ 234:	b7 0b       	sbc	r27, r23
+
+00000236 <__udivmodhi4_ep>:
+ 236:	88 1f       	adc	r24, r24
+ 238:	99 1f       	adc	r25, r25
+ 23a:	5a 95       	dec	r21
+ 23c:	a9 f7       	brne	.-22     	; 0x228 <__udivmodhi4_loop>
+ 23e:	80 95       	com	r24
+ 240:	90 95       	com	r25
+ 242:	bc 01       	movw	r22, r24
+ 244:	cd 01       	movw	r24, r26
+ 246:	08 95       	ret
+
+00000248 <_exit>:
+ 248:	f8 94       	cli
+
+0000024a <__stop_program>:
+ 24a:	ff cf       	rjmp	.-2      	; 0x24a <__stop_program>
