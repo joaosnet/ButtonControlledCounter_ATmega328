@@ -74,14 +74,14 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
     <td align="center">
       <a href="https://www.instagram.com/aly_lustoza/" title="QA Tester Analista de Mercado">
-        <img src="https://instagram.fbel1-1.fna.fbcdn.net/v/t51.2885-19/274501676_537691970910933_7250418063848294931_n.jpg?stp=dst-jpg_s150x150&_nc_ht=instagram.fbel1-1.fna.fbcdn.net&_nc_cat=109&_nc_ohc=ACApVBikdNoAX_Nd-z2&edm=ACWDqb8BAAAA&ccb=7-5&oh=00_AfDqicJsk8zjq8bXqvL38hbjF8K83bzzIqWNVcpTFrIBoQ&oe=65605C0E&_nc_sid=ee9879" width="100px;" alt="Foto do Alydson Lustoza"/><br>
+        <img src="https://instagram.fbel1-1.fna.fbcdn.net/v/t51.2885-19/274501676_537691970910933_7250418063848294931_n.jpg?stp=dst-jpg_s150x150&_nc_ht=instagram.fbel1-1.fna.fbcdn.net&_nc_cat=109&_nc_ohc=KgbJtfViehAAX9mB9cR&edm=ACWDqb8BAAAA&ccb=7-5&oh=00_AfApyka_2lTirZVLEmvZec5PMm-mFW-SU1m3uIYbYDNZ5w&oe=65664ACE&_nc_sid=ee9879" width="100px;" alt="Foto do Alydson Lustoza"/><br>
         <sub>
           <b>Alydson Lustoza</b>
         </sub>
       </a>
         <td align="center">
       <a href="https://www.instagram.com/c.j_silva/" title="UX Designer Desenvolvedora Backend">
-        <img src="https://instagram.fbel1-1.fna.fbcdn.net/v/t51.2885-19/361771304_833908247939807_9019221283482484802_n.jpg?stp=dst-jpg_s150x150&_nc_ht=instagram.fbel1-1.fna.fbcdn.net&_nc_cat=111&_nc_ohc=3QzOmdN5IJgAX-3DH59&edm=ACWDqb8BAAAA&ccb=7-5&oh=00_AfCdANs4lzWpoaEoAihOl_H-kYdiIQ3QYA4oGHJwyK29bg&oe=655F5B32&_nc_sid=ee9879" width="100px;" alt="Foto da Carla Silva"/><br>
+        <img src="https://instagram.fbel1-1.fna.fbcdn.net/v/t51.2885-19/361771304_833908247939807_9019221283482484802_n.jpg?stp=dst-jpg_s150x150&_nc_ht=instagram.fbel1-1.fna.fbcdn.net&_nc_cat=111&_nc_ohc=6VEjSCPRkm0AX-I87Do&edm=ACWDqb8BAAAA&ccb=7-5&oh=00_AfAZPuIQzYFL-7ojBTLjwU-cWWeeBRhDd_4y8QxFkIYUqw&oe=656549F2&_nc_sid=ee9879" width="100px;" alt="Foto da Carla Silva"/><br>
         <sub>
           <b>Carla Silva</b>
         </sub>
@@ -89,7 +89,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
     <td align="center">
       <a href="https://www.instagram.com/tms.jpeg/" title="UI Designer Especialista em Marketing">
-        <img src="https://instagram.fbel1-1.fna.fbcdn.net/v/t51.2885-19/300225876_600418448208671_8750170704882872093_n.jpg?stp=dst-jpg_s150x150&_nc_ht=instagram.fbel1-1.fna.fbcdn.net&_nc_cat=111&_nc_ohc=vPMqdVMSlsQAX8ZyRc5&edm=ACWDqb8BAAAA&ccb=7-5&oh=00_AfBX2xpFXKaSbRKpKrM-pOCOjcBunH4pezgOZXbeX5XhGw&oe=656099CB&_nc_sid=ee9879" width="100px;" alt="Foto do José Soares"/><br>
+        <img src="https://instagram.fbel1-1.fna.fbcdn.net/v/t51.2885-19/300225876_600418448208671_8750170704882872093_n.jpg?stp=dst-jpg_s150x150&_nc_ht=instagram.fbel1-1.fna.fbcdn.net&_nc_cat=111&_nc_ohc=zkwa2sgjdMYAX-g_-gi&edm=ACWDqb8BAAAA&ccb=7-5&oh=00_AfCdAENfZaw2HUE5i5Mj9XrHStvDv2d348cJUBAutNyrlg&oe=6566888B&_nc_sid=ee9879" width="100px;" alt="Foto do José Soares"/><br>
         <sub>
           <b>José Soares</b>
         </sub>
