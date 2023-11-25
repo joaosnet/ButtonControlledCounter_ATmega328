@@ -23,11 +23,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   9 .debug_frame  000000c0  00000000  00000000  00001668  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000437  00000000  00000000  00001728  2**0
+ 10 .debug_str    00000447  00000000  00000000  00001728  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    0000019d  00000000  00000000  00001b5f  2**0
+ 11 .debug_loc    0000019d  00000000  00000000  00001b6f  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000038  00000000  00000000  00001cfc  2**0
+ 12 .debug_ranges 00000038  00000000  00000000  00001d0c  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -95,7 +95,7 @@ void inicializarShiftRegisters() {
     // Configurar os pinos como saída
     DDRB |= (1 << DS_PINO) | (1 << SH_CP_PINO) | (1 << ST_CP_PINO);
   90:	84 b1       	in	r24, 0x04	; 4
-  92:	80 67       	ori	r24, 0x70	; 112
+  92:	87 60       	ori	r24, 0x07	; 7
   94:	84 b9       	out	0x04, r24	; 4
   96:	08 95       	ret
 
@@ -122,24 +122,24 @@ void enviarByte(uint8_t dado) {
   b0:	04 c0       	rjmp	.+8      	; 0xba <enviarByte+0x22>
             PORTB |= (1 << DS_PINO);
   b2:	95 b1       	in	r25, 0x05	; 5
-  b4:	90 61       	ori	r25, 0x10	; 16
+  b4:	91 60       	ori	r25, 0x01	; 1
   b6:	95 b9       	out	0x05, r25	; 5
   b8:	03 c0       	rjmp	.+6      	; 0xc0 <enviarByte+0x28>
         } else {
             PORTB &= ~(1 << DS_PINO);
   ba:	95 b1       	in	r25, 0x05	; 5
-  bc:	9f 7e       	andi	r25, 0xEF	; 239
+  bc:	9e 7f       	andi	r25, 0xFE	; 254
   be:	95 b9       	out	0x05, r25	; 5
         }
 
         // Pulsar o pino de clock (SH_CP)
         PORTB |= (1 << SH_CP_PINO);
   c0:	95 b1       	in	r25, 0x05	; 5
-  c2:	90 62       	ori	r25, 0x20	; 32
+  c2:	92 60       	ori	r25, 0x02	; 2
   c4:	95 b9       	out	0x05, r25	; 5
         PORTB &= ~(1 << SH_CP_PINO);
   c6:	95 b1       	in	r25, 0x05	; 5
-  c8:	9f 7d       	andi	r25, 0xDF	; 223
+  c8:	9d 7f       	andi	r25, 0xFD	; 253
   ca:	95 b9       	out	0x05, r25	; 5
     DDRB |= (1 << DS_PINO) | (1 << SH_CP_PINO) | (1 << ST_CP_PINO);
 }
@@ -158,11 +158,11 @@ void enviarByte(uint8_t dado) {
     // Pulsar o pino de latch (ST_CP)
     PORTB |= (1 << ST_CP_PINO);
   d4:	85 b1       	in	r24, 0x05	; 5
-  d6:	80 64       	ori	r24, 0x40	; 64
+  d6:	84 60       	ori	r24, 0x04	; 4
   d8:	85 b9       	out	0x05, r24	; 5
     PORTB &= ~(1 << ST_CP_PINO);
   da:	85 b1       	in	r24, 0x05	; 5
-  dc:	8f 7b       	andi	r24, 0xBF	; 191
+  dc:	8b 7f       	andi	r24, 0xFB	; 251
   de:	85 b9       	out	0x05, r24	; 5
   e0:	08 95       	ret
 
@@ -248,12 +248,12 @@ void configurarInterrupcoes() {
     // Configurar os pinos dos botões como entrada
     DDRD &= ~(1 << BOTAO_A_PINO) | (1 << BOTAO_B_PINO);
  152:	8a b1       	in	r24, 0x0a	; 10
- 154:	8b 7f       	andi	r24, 0xFB	; 251
+ 154:	8f 7e       	andi	r24, 0xEF	; 239
  156:	8a b9       	out	0x0a, r24	; 10
     // Ativar resistores de pull-up para os botões
     PORTD |= (1 << BOTAO_A_PINO) | (1 << BOTAO_B_PINO);
  158:	8b b1       	in	r24, 0x0b	; 11
- 15a:	8c 60       	ori	r24, 0x0C	; 12
+ 15a:	80 63       	ori	r24, 0x30	; 48
  15c:	8b b9       	out	0x0b, r24	; 11
 
     // Configurar a interrupção para o botão A (PCINT20)
@@ -329,7 +329,7 @@ ISR(PCINT2_vect) {
  1ac:	00 00       	nop
     _delay_ms(10); // Debounce
     if (!(PIND & (1 << BOTAO_A_PINO))) {
- 1ae:	4a 99       	sbic	0x09, 2	; 9
+ 1ae:	4c 99       	sbic	0x09, 4	; 9
  1b0:	0a c0       	rjmp	.+20     	; 0x1c6 <__vector_5+0x3c>
         // Incrementar o contador
         contador = (contador + 1) % 30;
@@ -342,7 +342,7 @@ ISR(PCINT2_vect) {
  1c2:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__DATA_REGION_ORIGIN__>
     }
     if (!(PIND & (1 << BOTAO_B_PINO))) {
- 1c6:	4b 99       	sbic	0x09, 3	; 9
+ 1c6:	4d 99       	sbic	0x09, 5	; 9
  1c8:	0b c0       	rjmp	.+22     	; 0x1e0 <__vector_5+0x56>
         // Decrementar o contador
         contador = (contador == 0) ? 29 : contador - 1;

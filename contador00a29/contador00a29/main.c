@@ -12,13 +12,13 @@
 #include <avr/interrupt.h>
 
 // Defina os pinos para os botões A e B
-#define BOTAO_A_PINO   2
-#define BOTAO_B_PINO   3
+#define BOTAO_A_PINO   PCINT20
+#define BOTAO_B_PINO   PCINT21
 
 // Defina os pinos para os registradores de deslocamento
-#define DS_PINO    4   // Data
-#define SH_CP_PINO 5   // Clock
-#define ST_CP_PINO 6   // Latch
+#define DS_PINO    PB0   // Data
+#define SH_CP_PINO PB1   // Clock
+#define ST_CP_PINO PB2   // Latch
 
 // Variáveis globais para a contagem e estado dos botões
 volatile uint8_t contador = 0;
