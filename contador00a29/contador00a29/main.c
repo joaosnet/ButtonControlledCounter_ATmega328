@@ -5,20 +5,20 @@
  * Author : Joao Neto
  */ 
 
-#define F_CPU 16000000UL // Definir a frequência do clock. Altere conforme necessário.
-
+#define F_CPU 8000000UL
 #include <avr/io.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
-
+#define cpl_bit(Y,bit_x) (Y^=(1<<bit_x)) //troca o estado do bit x
+#define tst_bit(y,bit) (y&(1<<bit))//retorna 0 ou 1 conforme leitura do bit
 // Defina os pinos para os botões A e B
 #define BOTAO_A_PINO   PCINT20
 #define BOTAO_B_PINO   PCINT21
-
 // Defina os pinos para os registradores de deslocamento
 #define DS_PINO    PB0   // Data
 #define SH_CP_PINO PB1   // Clock
 #define ST_CP_PINO PB2   // Latch
+ISR(PCINT2_vect);//declara uso de PCINT1 (pinos PCINT8:10)
 
 // Variáveis globais para a contagem e estado dos botões
 volatile uint8_t contador = 0;

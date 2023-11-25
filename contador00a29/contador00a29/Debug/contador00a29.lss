@@ -321,8 +321,8 @@ ISR(PCINT2_vect) {
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
- 1a2:	8f e3       	ldi	r24, 0x3F	; 63
- 1a4:	9c e9       	ldi	r25, 0x9C	; 156
+ 1a2:	8f e1       	ldi	r24, 0x1F	; 31
+ 1a4:	9e e4       	ldi	r25, 0x4E	; 78
  1a6:	01 97       	sbiw	r24, 0x01	; 1
  1a8:	f1 f7       	brne	.-4      	; 0x1a6 <__vector_5+0x1c>
  1aa:	00 c0       	rjmp	.+0      	; 0x1ac <__vector_5+0x22>
