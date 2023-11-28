@@ -1,9 +1,17 @@
-/*
- * contador00a29.c
+/**
+ * @file contador00a29.c
+ * @brief Contador com controle de botões utilizando registradores de deslocamento.
  *
- * Created: 24/11/2023 15:27:09
- * Author : Joao Neto
- */ 
+ * Este programa implementa um contador com controle de botões utilizando registradores de deslocamento.
+ * Os botões A e B são utilizados para incrementar e decrementar o contador, respectivamente.
+ * O valor do contador é exibido em dois displays de sete segmentos.
+ * O programa utiliza interrupções para detectar as ações dos botões e atualizar o valor do contador.
+ *
+ * @date 24/11/2023
+ * @version 1.0
+ *
+ * @author Joao Neto
+ */
 
 #define F_CPU 8000000UL
 #include <avr/io.h>
@@ -18,7 +26,7 @@
 #define DS_PINO    PB0   // Data
 #define SH_CP_PINO PB1   // Clock
 #define ST_CP_PINO PB2   // Latch
-ISR(PCINT2_vect);//declara uso de PCINT1 (pinos PCINT8:10)
+ISR(PCINT2_vect);//declara uso de PCINT2 (pinos PCINT20:21)
 
 // Variáveis globais para a contagem e estado dos botões
 volatile uint8_t contador = 0;
@@ -51,10 +59,24 @@ void enviarByte(uint8_t dado) {
     PORTB &= ~(1 << ST_CP_PINO);
 }
 
+// Mapeamento de dígitos para códigos de sete segmentos
+uint8_t mapaSeteSegmentos[10] = {
+    0b11000000, // 0
+    0b11111001, // 1
+    0b10100100, // 2
+    0b10110000, // 3
+    0b10011001, // 4
+    0b10010010, // 5
+    0b10000010, // 6
+    0b11111000, // 7
+    0b10000000, // 8
+    0b10010000  // 9
+};
+
 // Função para atualizar os displays de sete segmentos
 void atualizarDisplay() {
     // Mapear os dígitos e enviar para os registradores de deslocamento
-    uint8_t digitos[2] = {contador / 10, contador % 10};
+    uint8_t digitos[2] = {mapaSeteSegmentos[contador / 10], mapaSeteSegmentos[contador % 10]};
     
     for (int i = 0; i < 2; i++) {
         // Enviar o código do dígito para os displays de sete segmentos
@@ -65,7 +87,7 @@ void atualizarDisplay() {
 // Configurar e inicializar as interrupções
 void configurarInterrupcoes() {
     // Configurar os pinos dos botões como entrada
-    DDRD &= ~(1 << BOTAO_A_PINO) | (1 << BOTAO_B_PINO);
+    DDRD &= ~((1 << BOTAO_A_PINO) | (1 << BOTAO_B_PINO));
     // Ativar resistores de pull-up para os botões
     PORTD |= (1 << BOTAO_A_PINO) | (1 << BOTAO_B_PINO);
 
@@ -87,6 +109,7 @@ int main(void) {
     while (1) {
         // Atualizar os displays de sete segmentos
         atualizarDisplay();
+        _delay_ms(100);  // Adicionando um atraso de 100 ms
     }
 
     return 0;
