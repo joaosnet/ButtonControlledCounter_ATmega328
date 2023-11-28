@@ -6,7 +6,7 @@
 ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/joaosnet/ButtonControlledCounter_ATmega328?style=for-the-badge)
 ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/joaosnet/ButtonControlledCounter_ATmega328?style=for-the-badge)
 
-<img src="images\projectA4.bmp" alt="Projeto A4">
+<img src="images\contando.gif" alt="Projeto A4">
 
 > Contador utilizando displays de sete segmentos controlados por um microcontrolador ATmega328. Este projeto permite a contagem entre os valores de 00 a 29, com botões A e B para incrementar e decrementar a contagem, respectivamente.
 
@@ -27,7 +27,7 @@ O projeto está em andamento, e as próximas atualizações serão focadas nas s
    - Configuração e controle dos registradores de deslocamento modelo 74HC595 para controlar os displays de sete segmentos.
    - Utilização de dois registradores de deslocamento ligados em série, um para cada display.
 
-4. [ ] **Código do Controlador Funcionando:**
+4. [x] **Código do Controlador Funcionando:**
    - Ajustes finais no código para garantir que o controlador funcione corretamente conforme os requisitos do projeto.
    - Testes e depuração para verificar o funcionamento adequado.
 
