@@ -104,11 +104,11 @@ void configurarInterrupcoes() {
 int main(void) {
     inicializarShiftRegisters();
     configurarInterrupcoes();
-
+    // Atualizar os displays de sete segmentos
+    atualizarDisplay();
+    _delay_ms(100);  // Adicionando um atraso de 100 ms
     while (1) {
-        // Atualizar os displays de sete segmentos
-        atualizarDisplay();
-        _delay_ms(100);  // Adicionando um atraso de 100 ms
+
     }
 
     return 0;
@@ -125,4 +125,7 @@ ISR(PCINT2_vect) {
         // Decrementar o contador
         contador = (contador == 0) ? 29 : contador - 1;
     }
+	// Atualizar os displays de sete segmentos
+	atualizarDisplay();
+	_delay_ms(100);  // Adicionando um atraso de 100 ms
 }
