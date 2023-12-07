@@ -106,7 +106,6 @@ int main(void) {
     configurarInterrupcoes();
     // Atualizar os displays de sete segmentos
     atualizarDisplay();
-    _delay_ms(100);  // Adicionando um atraso de 100 ms
     while (1) {
 
     }
@@ -127,5 +126,4 @@ ISR(PCINT2_vect) {
     }
 	// Atualizar os displays de sete segmentos
 	atualizarDisplay();
-	_delay_ms(100);  // Adicionando um atraso de 100 ms
 }
