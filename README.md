@@ -50,7 +50,7 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 - Você instalou a versão mais recente do Microchip Studio
 - Você tem instalado o Proteus 8.7 SP3 ou um microcontrolador ATmega328p
-- Você leu o datasheet do ATmega328, do 74HC595 e dos displays de sete segmentos.
+- Você leu a [o artigo relacionado ao projeto](https://github.com/joaosnet/ButtonControlledCounter_ATmega328/blob/ea472e2d71edbc1be9e67d4b308d8e59acc44075/Artigo_para_o_SBrT_2023__equipe-04__Trab_.pdf).
 
 ## ☕ Usando Contador Sete Segmentos
 
